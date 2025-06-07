@@ -3,6 +3,8 @@ Import-Module -Force (Join-Path $PSScriptRoot 'Util.psm1')
 
 Do-Elevate ($myInvocation.MyCommand.Definition + " -noprofile")
 
+$installerUrls = Load-InstallerUrls
+
 Install-Feature "SetPath" {
     Append-Path-Env (Join-Path $HOME 'bin')
     Set-GlobalEnv 'HOME' $HOME
